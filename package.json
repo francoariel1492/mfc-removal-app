@@ -1,0 +1,20 @@
+{
+  "name": "mfc-map-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francoariel1492/mfc-maps-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francoariel1492/mfc-maps-app/issues"
+  },
+  "homepage": "https://github.com/francoariel1492/mfc-maps-app#readme"
+}
