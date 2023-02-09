@@ -48,7 +48,7 @@ directionsDisplay.setMap(map);
 
 //define calcRoute function
 function calcRoute() {
-  mapContainer.className = `container py-5`
+  
   //create request
   let request = {
     origin: document.getElementById("from").value,
@@ -58,19 +58,18 @@ function calcRoute() {
   };
 
   //pass the request to the route method
-  directionsService.route(request, function (result, status) {
+  directionsService.route(request, (result, status) => {
     if (status == google.maps.DirectionsStatus.OK) {
+      mapContainer.className = `container py-5 animate__animated animate__fadeIn`
       //Get distance and time
       const output = document.querySelector("#output");
       output.innerHTML =
-        "<div class='alert-info'>From: " +
+        "<div class='alert-info'>Desde: " +
         document.getElementById("from").value +
-        ".<br />To: " +
+        ".<br />Hasta: " +
         document.getElementById("to").value +
-        ".<br /> Driving distance <i class='fas fa-road'></i> : " +
-        result.routes[0].legs[0].distance.text +
-        ".<br />Duration <i class='fas fa-hourglass-start'></i> : " +
-        result.routes[0].legs[0].duration.text +
+        ".<br /> Distancia <i class='fas fa-road'></i> : " +
+        result.routes[0].legs[0].distance.text
         ".</div>";
 
       //display route
@@ -82,9 +81,12 @@ function calcRoute() {
       map.setCenter(myLatLng);
 
       //show error message
+      mapContainer.innerHTML = `container py-5 animate__animated animate__fadeIn`
       output.innerHTML =
-        "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Could not retrieve driving distance.</div>";
+        "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Algo salio mal</div>";
     }
+    
+    
   });
 }
 
