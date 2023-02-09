@@ -91,11 +91,11 @@ function calcRoute() {
 //create autocomplete objects for all inputs
 let options = {
   types: ["(cities)"],
-  types: ["address"],
+  types: ["address"]
 };
 
 let input1 = document.getElementById("from");
-let autocomplete1 = new google.maps.places.Autocomplete(input1, options);
+let autocomplete1 = new google.maps.places.SearchBox(input1, options);
 
 let input2 = document.getElementById("to");
-let autocomplete2 = new google.maps.places.Autocomplete(input2, options);
+let autocomplete2 = new google.maps.places.SearchBox(input2, options);

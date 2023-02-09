@@ -1,4 +1,4 @@
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -26,27 +26,29 @@ body {
   color: #2B2E4A;
 }
 
-.btn {
-  background-color: #E84545;
-  border: #2B2E4A;
-  color: #2B2E4A;
-}
-.btn:hover {
-  background-color: #53354A !important;
-  border: #E84545 !important;
-  color: #E84545 !important;
+.btn{
+    background-color: #E84545;
+    border: #2B2E4A;
+    color: #2B2E4A;
+    &:hover {
+        background-color: #53354A !important;
+        border: #E84545 !important;
+        color: #E84545 !important;
+    }
 }
 
 .bgform {
   background-image: url("./Images/background.png");
   background-position: bottom;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100%; 
 }
 
+
 @media screen and (min-width: 768px) {
-  .bgform {
+  .bgform{
     background-size: 75%;
     background-position: center;
   }
-}/*# sourceMappingURL=App.css.map */
+}
+
