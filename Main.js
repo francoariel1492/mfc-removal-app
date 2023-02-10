@@ -2,7 +2,9 @@
 
 //set map options
 let myLatLng = { lat: -34.672, lng: -58.44 };
-let mapContainer = document.getElementById('mapContainer')
+let mapContainer = document.getElementById("mapContainer");
+let from = document.getElementById("from");
+let to = document.getElementById("to");
 
 function initMap() {
   if (navigator.geolocation) {
@@ -48,7 +50,6 @@ directionsDisplay.setMap(map);
 
 //define calcRoute function
 function calcRoute() {
-  
   //create request
   let request = {
     origin: document.getElementById("from").value,
@@ -57,20 +58,26 @@ function calcRoute() {
     unitSystem: google.maps.UnitSystem.IMPERIAL,
   };
 
-  //pass the request to the route method
   directionsService.route(request, (result, status) => {
+    let fwFrom = from.value.split(",")[0];
+    let fwTo = to.value.split(",")[0];
+    const miles = parseFloat(result.routes[0].legs[0].distance.text.split(" ")[0]);
+    const kmDistance = Math.round(miles * 1.60934);
     if (status == google.maps.DirectionsStatus.OK) {
-      mapContainer.className = `container py-5 animate__animated animate__fadeIn`
+      setTimeout(() => {
+        window.scrollBy(0, 500);
+      }, 500);
+      mapContainer.className = `container py-5 animate__animated animate__fadeIn`;
       //Get distance and time
       const output = document.querySelector("#output");
       output.innerHTML =
         "<div class='alert-info'>Desde: " +
-        document.getElementById("from").value +
+        fwFrom +
         ".<br />Hasta: " +
-        document.getElementById("to").value +
-        ".<br /> Distancia <i class='fas fa-road'></i> : " +
-        result.routes[0].legs[0].distance.text
-        ".</div>";
+        fwTo +
+        ".<br /> Distancia: " +
+        `${kmDistance}km`;
+      (".</div>");
 
       //display route
       directionsDisplay.setDirections(result);
@@ -81,19 +88,17 @@ function calcRoute() {
       map.setCenter(myLatLng);
 
       //show error message
-      mapContainer.innerHTML = `container py-5 animate__animated animate__fadeIn`
+      mapContainer.innerHTML = `container py-5 animate__animated animate__fadeIn`;
       output.innerHTML =
         "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Algo salio mal</div>";
     }
-    
-    
   });
 }
 
 //create autocomplete objects for all inputs
 let options = {
-  types: ["(cities)"],
-  types: ["address"]
+types: ["(cities)"],
+  types: ["address"],
 };
 
 let input1 = document.getElementById("from");
