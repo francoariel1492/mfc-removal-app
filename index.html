@@ -25,9 +25,9 @@
       rel="stylesheet"
     />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link href="App.css" rel="stylesheet" />
   </head>
   <body class="row bgform text-center p-md-5 m-md-5">
@@ -38,9 +38,7 @@
       </p>
       <form class="form-horizontal col-12 col-md-6 col-lg-3">
         <div class="p-3">
-          <div
-            class="form-group d-flex flex-row  py-3"
-          >
+          <div class="form-group d-flex flex-row py-3">
             <label for="from" class="control-label px-1"></label>
             <input
               type="text"
@@ -59,22 +57,19 @@
             />
           </div>
 
-          <button
-            class="btn btn-lg mt-3 "
-            type="button"
-            onclick="calcRoute();"
-          >
+          <button class="btn btn-lg mt-3" type="button" onclick="calcRoute();">
             Cotiza tu viaje
           </button>
         </div>
       </form>
-      <div class="d-none col-12 " id="mapContainer">
-        <div id="output" class="p-5"></div>
+      <div class="d-none col-12" id="mapContainer">
+        <div id="output" class="p-1"></div>
         <div id="googleMap" class=""></div>
       </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkkrDqngi60o0kOB8_JIlgoh3qddTqsT4&libraries=places&callback=Function.prototype"></script>
     <script src="Main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
   </body>
 </html>
