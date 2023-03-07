@@ -1,4 +1,6 @@
-﻿let myLatLng = { lat: -34.672, lng: -58.44 };
+﻿//Variables
+
+let myLatLng = { lat: -34.672, lng: -58.44 };
 let mapContainer = document.getElementById("mapContainer");
 let from = document.getElementById("from");
 let to = document.getElementById("to");
